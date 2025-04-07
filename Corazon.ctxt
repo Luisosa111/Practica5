@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Corazon
+comment1.params=xPos\ yPos
+comment1.target=void\ dibujar(int,\ int)
+numComments=2

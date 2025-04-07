@@ -2,32 +2,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Jugador {
-    public String nombre; 
-    private List<Carta> mano;
-
-    // Constructor
+    public String nombre;               
+    private List<Carta> mano;         
     public Jugador(String nombre) {
         this.nombre = nombre;
-        this.mano = new ArrayList<>();
+        this.mano = new ArrayList<>();  
     }
 
-    // Método 
-    public void asignarCartas(List<Carta> cartas) {
-        mano.addAll(cartas);
+    public void recibirCartas(List<Carta> nuevasCartas) {
+        mano.addAll(nuevasCartas);       
     }
 
-    // Método
     public void descartarCarta(Carta carta) {
-        mano.remove(carta);
+        mano.remove(carta);         
+    }
+  
+    public void descartarTodasLasCartas() {
+        mano.clear();         
     }
 
-    // Método 
-    @Override
-    public String toString() {
-        StringBuilder info = new StringBuilder("Jugador: " + nombre + "\nCartas: ");
-        for (Carta carta : mano) {
-            info.append("\n  - ").append(carta);
+    public String informacionJugador() {
+        StringBuilder info = new StringBuilder();
+        info.append("Jugador: ").append(nombre).append("\nCartas en mano: \n");
+
+        if (mano.isEmpty()) {
+            info.append("No tiene cartas.");
+        } else {
+            for (Carta carta : mano) {
+                info.append(carta).append("\n");  
+            }
         }
-        return info.toString();
+        return info.toString();              
+    }
+
+    public List<Carta> obtenerCartasEnMano() {
+        return new ArrayList<>(mano);             
     }
 }

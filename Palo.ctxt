@@ -1,3 +1,9 @@
 #BlueJ class context
 comment0.target=Palo
-numComments=1
+comment1.params=simbolo
+comment1.target=Palo(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getSimbolo()
+comment3.params=x\ y
+comment3.target=void\ dibujar(int,\ int)
+numComments=4

@@ -3,47 +3,42 @@ import java.util.Collections;
 import java.util.List;
 
 public class Mazo {
-    private List<Carta> cartas;
-
-    // Constructor
+    private List<Carta> cartas;          
+    private List<Carta> cartasRepartidas; 
     public Mazo() {
-        cartas = new ArrayList<>();
-        restablecerMazo();
+        this.cartas = new ArrayList<>();
+        this.cartasRepartidas = new ArrayList<>();
+        inicializarMazo();
     }
-
-    // Método 
-    public void restablecerMazo() {
-        cartas.clear();
+       public void inicializarMazo() {
+        cartas.clear(); 
         for (Palo palo : Palo.values()) {
             for (int valor = 1; valor <= 13; valor++) {
-                cartas.add(new Carta(valor, palo));
+                cartas.add(new Carta(valor, palo));  
             }
         }
+        cartasRepartidas.clear(); 
     }
-
-    // Método 
-    public void barajar() {
-        Collections.shuffle(cartas);
+       public void barajar() {
+        Collections.shuffle(cartas);  
     }
-
-    // Método 
-    public List<Carta> repartir(int numCartas) {
-        List<Carta> mano = new ArrayList<>();
-        for (int i = 0; i < numCartas && !cartas.isEmpty(); i++) {
-            mano.add(cartas.remove(0));
+    public List<Carta> repartirCartas(int numeroDeCartas) {
+        List<Carta> cartasRepartidasAHora = new ArrayList<>();
+        for (int i = 0; i < numeroDeCartas; i++) {
+            Carta carta = cartas.remove(0); 
+            cartasRepartidas.add(carta);     
+            cartasRepartidasAHora.add(carta); 
         }
-        return mano;
+        return cartasRepartidasAHora; 
     }
-
-    // Método 
-    public void agregarCarta(Carta carta) {
-        cartas.add(carta);
+    public void devolverCarta(Carta carta) {
+        cartas.add(carta);                  
+        cartasRepartidas.remove(carta);     
     }
-
-    // Método
-    public void mostrarMazo() {
-        for (Carta c : cartas) {
-            System.out.println(c);
-        }
+    public List<Carta> obtenerCartasDisponibles() {
+        return new ArrayList<>(cartas);  
+    }
+    public List<Carta> obtenerCartasRepartidas() {
+        return new ArrayList<>(cartasRepartidas);
     }
 }

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Triangulo
+comment1.params=height\ width\ x\ y\ color
+comment1.target=Triangulo(int,\ int,\ int,\ int,\ java.lang.String)
+numComments=2

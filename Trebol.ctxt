@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Trebol
+comment1.params=xPos\ yPos\ color
+comment1.target=void\ dibujar(int,\ int,\ java.lang.String)
+numComments=2
